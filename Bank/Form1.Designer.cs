@@ -32,6 +32,10 @@
             this.Customers = new System.Windows.Forms.GroupBox();
             this.dgv_Customers = new System.Windows.Forms.DataGridView();
             this.CustomerDetails = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.txtBox_Phone = new System.Windows.Forms.TextBox();
             this.txtBox_PostNumber = new System.Windows.Forms.TextBox();
             this.txtBox_Name = new System.Windows.Forms.TextBox();
@@ -40,10 +44,6 @@
             this.dgv_Credits = new System.Windows.Forms.DataGridView();
             this.Payments = new System.Windows.Forms.GroupBox();
             this.dgv_Payments = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.grb_Search = new System.Windows.Forms.GroupBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -80,6 +80,7 @@
             this.dgv_Customers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Customers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_Customers.Location = new System.Drawing.Point(3, 16);
+            this.dgv_Customers.MultiSelect = false;
             this.dgv_Customers.Name = "dgv_Customers";
             this.dgv_Customers.Size = new System.Drawing.Size(341, 129);
             this.dgv_Customers.TabIndex = 0;
@@ -100,6 +101,42 @@
             this.CustomerDetails.TabIndex = 1;
             this.CustomerDetails.TabStop = false;
             this.CustomerDetails.Text = "Customer Details";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(19, 115);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(38, 13);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Phone";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(19, 89);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(28, 13);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Post";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(19, 63);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Name";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(19, 37);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(16, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Id";
             // 
             // txtBox_Phone
             // 
@@ -171,42 +208,6 @@
             this.dgv_Payments.Size = new System.Drawing.Size(669, 125);
             this.dgv_Payments.TabIndex = 0;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(19, 37);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(16, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Id";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(19, 63);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Name";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(19, 89);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(28, 13);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Post";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(19, 115);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(38, 13);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Phone";
-            // 
             // grb_Search
             // 
             this.grb_Search.Location = new System.Drawing.Point(9, 27);
@@ -249,6 +250,7 @@
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // customersToolStripMenuItem
             // 
@@ -263,6 +265,7 @@
             this.addCustomerToolStripMenuItem.Name = "addCustomerToolStripMenuItem";
             this.addCustomerToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.addCustomerToolStripMenuItem.Text = "Add Customer";
+            this.addCustomerToolStripMenuItem.Click += new System.EventHandler(this.addCustomerToolStripMenuItem_Click);
             // 
             // creditsToolStripMenuItem
             // 
@@ -275,7 +278,7 @@
             // openCreditToolStripMenuItem
             // 
             this.openCreditToolStripMenuItem.Name = "openCreditToolStripMenuItem";
-            this.openCreditToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.openCreditToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.openCreditToolStripMenuItem.Text = "Open Credit";
             // 
             // paymentsToolStripMenuItem
@@ -306,6 +309,8 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Bank";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.Customers.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Customers)).EndInit();
             this.CustomerDetails.ResumeLayout(false);
