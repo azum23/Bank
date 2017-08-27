@@ -22,6 +22,46 @@ namespace Bank
             connectionString.IntegratedSecurity = true;
         }
 
+        internal string GetNextCreditID()
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString.ConnectionString))
+            {
+                connection.Open();
+                string cmdTxt = @"select ident_current('Credits')";
+                SqlCommand com = new SqlCommand(cmdTxt, connection);
+
+                int id = Convert.ToInt32(com.ExecuteScalar());
+                id++;
+                return id.ToString();
+            }
+        }
+
+        internal bool SaveNewCredit(int customerId, int amount, DateTime openDate)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString.ConnectionString))
+            {
+                
+                string cmdTxt = String.Format(
+                    $"insert into Credits " +
+                    $" (CustomerId, Amount, Balance, OpenDate) values " +
+                    $"({customerId.ToString()},{amount},{amount},'{openDate.ToString()}')");
+
+                SqlCommand cmd = new SqlCommand(cmdTxt, connection);
+
+                try
+                {
+                    connection.Open();
+                    if (cmd.ExecuteNonQuery() == 1)
+                        return true;
+                }
+                catch
+                {
+
+                }
+            }
+            return false;
+        }
+
         public ArrayList GetAllCustomers()
         {
             ArrayList customers = new ArrayList();

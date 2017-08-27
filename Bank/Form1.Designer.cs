@@ -263,7 +263,7 @@
             // addCustomerToolStripMenuItem
             // 
             this.addCustomerToolStripMenuItem.Name = "addCustomerToolStripMenuItem";
-            this.addCustomerToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.addCustomerToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.addCustomerToolStripMenuItem.Text = "Add Customer";
             this.addCustomerToolStripMenuItem.Click += new System.EventHandler(this.addCustomerToolStripMenuItem_Click);
             // 
@@ -280,6 +280,7 @@
             this.openCreditToolStripMenuItem.Name = "openCreditToolStripMenuItem";
             this.openCreditToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.openCreditToolStripMenuItem.Text = "Open Credit";
+            this.openCreditToolStripMenuItem.Click += new System.EventHandler(this.openCreditToolStripMenuItem_Click);
             // 
             // paymentsToolStripMenuItem
             // 
@@ -294,6 +295,7 @@
             this.addNewPaymentToolStripMenuItem.Name = "addNewPaymentToolStripMenuItem";
             this.addNewPaymentToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.addNewPaymentToolStripMenuItem.Text = "Add New Payment";
+            this.addNewPaymentToolStripMenuItem.Click += new System.EventHandler(this.addNewPaymentToolStripMenuItem_Click);
             // 
             // Form1
             // 

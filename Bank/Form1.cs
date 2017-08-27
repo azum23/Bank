@@ -31,6 +31,8 @@ namespace Bank
             dgv_Customers.Columns["PostNumber"].Visible = false;
             dgv_Customers.Columns["Phone"].Visible = false;
             dgv_Customers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            dgv_Credits.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void dgv_Customers_CellEnter(object sender, DataGridViewCellEventArgs e)
@@ -90,6 +92,24 @@ namespace Bank
             {
                 dgv_Customers.DataSource = data.GetAllCustomers();
             }
+        }
+
+        private void openCreditToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            newCredit newCreditForm = new newCredit();
+
+            if (newCreditForm.ShowDialog() == DialogResult.OK)
+            {
+                dgv_Credits.DataSource = data.GetCustomerCredits(dgv_Customers.CurrentRow.Cells["Id"].Value.ToString());
+            }
+            
+        }
+
+        private void addNewPaymentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            newPayment newPaymentForm = new newPayment();
+            newPaymentForm.ShowDialog();
+
         }
     }
 }

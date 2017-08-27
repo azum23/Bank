@@ -52,19 +52,37 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="newCredit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="newCredit.Designer.cs">
+      <DependentUpon>newCredit.cs</DependentUpon>
+    </Compile>
     <Compile Include="newCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="newCustomer.Designer.cs">
       <DependentUpon>newCustomer.cs</DependentUpon>
     </Compile>
+    <Compile Include="newPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="newPayment.Designer.cs">
+      <DependentUpon>newPayment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="newCredit.resx">
+      <DependentUpon>newCredit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="newCustomer.resx">
       <DependentUpon>newCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="newPayment.resx">
+      <DependentUpon>newPayment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

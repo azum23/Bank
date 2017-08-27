@@ -29,7 +29,7 @@ namespace Bank
 
                 if (result)
                 {
-                    // MessageBox.Show($"Добален новый клиент: {txtBox_Name.Text}", "Запись добавлена", MessageBoxButtons.OK);
+                    MessageBox.Show($"Добален новый клиент: {txtBox_Name.Text}", "Запись добавлена", MessageBoxButtons.OK);
                     this.DialogResult = DialogResult.OK;
                 }
                 // в случае ошибки подключения
@@ -48,6 +48,11 @@ namespace Bank
         private void newCustomer_FormClosed(object sender, FormClosedEventArgs e)
         {
            
+        }
+
+        private void txtBox_Phone_TextChanged(object sender, EventArgs e)
+        {
+            // TODO: форматирование номера
         }
     }
 }
