@@ -7,6 +7,7 @@ using System.Collections;
 using System.Data;
 using System.Data.SqlClient;
 using System.Data.Common;
+using System.Globalization;
 
 namespace Bank
 {
@@ -40,7 +41,7 @@ namespace Bank
         {
             using (SqlConnection connection = new SqlConnection(connectionString.ConnectionString))
             {
-                
+
                 string cmdTxt = String.Format(
                     $"insert into Credits " +
                     $" (CustomerId, Amount, Balance, OpenDate) values " +
@@ -97,6 +98,50 @@ namespace Bank
                 return customers;
             }
 
+        }
+
+        internal bool SaveNewPayment(int creditId, decimal payAmmount, DateTime date)
+        {
+            payAmmount = decimal.Round(payAmmount, 2);
+            string payToString = payAmmount.ToString(CultureInfo.InvariantCulture.NumberFormat);
+
+            bool result = false;
+
+            using (SqlConnection connection = new SqlConnection(connectionString.ConnectionString))
+            {
+                connection.Open();
+                SqlTransaction transaction = connection.BeginTransaction();
+                
+                try
+                {
+                    SqlCommand com1 = connection.CreateCommand();
+                    com1.Transaction = transaction;
+                    com1.CommandText = String.Format($"Insert into Payments (CreditId, Amount, PayDate) " +
+                        $"Values ({creditId},'{payToString}','{date.ToShortDateString()}')");
+                    com1.ExecuteNonQuery();
+
+                    SqlCommand com2 = connection.CreateCommand();
+                    com2.Transaction = transaction;
+                    com2.CommandText = String.Format($"Update [Credits] " +
+                        $"set [Balance] = [Balance] - '{payToString}' " +
+                        $"where [Id] = {creditId}");
+                    com2.ExecuteNonQuery();
+
+                    transaction.Commit();
+                    result = true;
+                }
+                catch
+                {
+                    transaction.Rollback();
+                }
+                finally
+                {
+
+                }
+
+            }
+
+            return result;
         }
 
         public ArrayList GetCustomerCredits(string customerId)

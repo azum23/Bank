@@ -40,6 +40,7 @@
             this.txtBox_Amount = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btn_SaveNewPayment = new System.Windows.Forms.Button();
+            this.lbl_Amount = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lbox_Id
@@ -52,6 +53,7 @@
             this.lbox_Id.TabIndex = 9;
             this.lbox_Id.UseWaitCursor = true;
             this.lbox_Id.ValueMember = "Id";
+            this.lbox_Id.SelectedIndexChanged += new System.EventHandler(this.lbox_Id_SelectedIndexChanged);
             // 
             // lbox_Name
             // 
@@ -63,6 +65,7 @@
             this.lbox_Name.TabIndex = 8;
             this.lbox_Name.UseWaitCursor = true;
             this.lbox_Name.ValueMember = "Id";
+            this.lbox_Name.SelectedIndexChanged += new System.EventHandler(this.lbox_Name_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -86,7 +89,7 @@
             // 
             // lbox_CreditAmount
             // 
-            this.lbox_CreditAmount.DisplayMember = "Name";
+            this.lbox_CreditAmount.DisplayMember = "Amount";
             this.lbox_CreditAmount.FormattingEnabled = true;
             this.lbox_CreditAmount.Location = new System.Drawing.Point(216, 161);
             this.lbox_CreditAmount.Name = "lbox_CreditAmount";
@@ -108,7 +111,7 @@
             // 
             // datetime_Open
             // 
-            this.datetime_Open.Location = new System.Drawing.Point(129, 285);
+            this.datetime_Open.Location = new System.Drawing.Point(129, 275);
             this.datetime_Open.Name = "datetime_Open";
             this.datetime_Open.Size = new System.Drawing.Size(200, 20);
             this.datetime_Open.TabIndex = 13;
@@ -117,7 +120,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(16, 291);
+            this.label5.Location = new System.Drawing.Point(16, 281);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(51, 13);
             this.label5.TabIndex = 12;
@@ -126,7 +129,7 @@
             // 
             // lbox_CreditBalnace
             // 
-            this.lbox_CreditBalnace.DisplayMember = "Name";
+            this.lbox_CreditBalnace.DisplayMember = "Balance";
             this.lbox_CreditBalnace.FormattingEnabled = true;
             this.lbox_CreditBalnace.Location = new System.Drawing.Point(336, 161);
             this.lbox_CreditBalnace.Name = "lbox_CreditBalnace";
@@ -137,17 +140,19 @@
             // 
             // txtBox_Amount
             // 
-            this.txtBox_Amount.Location = new System.Drawing.Point(129, 311);
+            this.txtBox_Amount.Location = new System.Drawing.Point(129, 301);
             this.txtBox_Amount.MaxLength = 8;
             this.txtBox_Amount.Name = "txtBox_Amount";
             this.txtBox_Amount.Size = new System.Drawing.Size(200, 20);
             this.txtBox_Amount.TabIndex = 14;
             this.txtBox_Amount.UseWaitCursor = true;
+            this.txtBox_Amount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBox_Amount_KeyPress);
+            this.txtBox_Amount.Leave += new System.EventHandler(this.txtBox_Amount_Leave);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(16, 314);
+            this.label3.Location = new System.Drawing.Point(16, 304);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(64, 13);
             this.label3.TabIndex = 15;
@@ -156,19 +161,30 @@
             // 
             // btn_SaveNewPayment
             // 
-            this.btn_SaveNewPayment.Location = new System.Drawing.Point(129, 347);
+            this.btn_SaveNewPayment.Location = new System.Drawing.Point(129, 327);
             this.btn_SaveNewPayment.Name = "btn_SaveNewPayment";
             this.btn_SaveNewPayment.Size = new System.Drawing.Size(200, 23);
             this.btn_SaveNewPayment.TabIndex = 16;
             this.btn_SaveNewPayment.Text = "Pay";
             this.btn_SaveNewPayment.UseVisualStyleBackColor = true;
             this.btn_SaveNewPayment.UseWaitCursor = true;
+            this.btn_SaveNewPayment.Click += new System.EventHandler(this.btn_SaveNewPayment_Click);
+            // 
+            // lbl_Amount
+            // 
+            this.lbl_Amount.AutoSize = true;
+            this.lbl_Amount.Location = new System.Drawing.Point(335, 304);
+            this.lbl_Amount.Name = "lbl_Amount";
+            this.lbl_Amount.Size = new System.Drawing.Size(35, 13);
+            this.lbl_Amount.TabIndex = 17;
+            this.lbl_Amount.Text = "label4";
             // 
             // newPayment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(472, 429);
+            this.Controls.Add(this.lbl_Amount);
             this.Controls.Add(this.btn_SaveNewPayment);
             this.Controls.Add(this.txtBox_Amount);
             this.Controls.Add(this.label3);
@@ -203,5 +219,6 @@
         private System.Windows.Forms.TextBox txtBox_Amount;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btn_SaveNewPayment;
+        private System.Windows.Forms.Label lbl_Amount;
     }
 }
